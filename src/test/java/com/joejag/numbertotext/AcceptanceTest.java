@@ -94,6 +94,15 @@ public class AcceptanceTest {
         assertConversion("two hundred thousand five hundred", 200500);
     }
 
+    @Test
+    public void translate_selection_of_other_numbers_below_a_billion() {
+        assertConversion("one million", 1000000);
+        assertConversion("two million five hundred", 2000500);
+        assertConversion("twenty million five hundred", 20000500);
+        assertConversion("two hundred million five hundred", 200000500);
+        assertConversion("two hundred million twenty thousand five hundred", 200020500);
+    }
+
     private void assertConversion(String expected, int input) {
         assertEquals(expected, numberToText.translate(input));
     }
