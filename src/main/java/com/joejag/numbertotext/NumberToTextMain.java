@@ -4,20 +4,21 @@ import com.joejag.numbertotext.breaker.NumberBreaker;
 import com.joejag.numbertotext.breaker.NumberComponent;
 import com.joejag.numbertotext.dictionary.BritishEnglishNumberDictionary;
 import com.joejag.numbertotext.translation.DictionaryBasedNumberReducer;
-import com.joejag.numbertotext.translation.NumberTranslator;
+import com.joejag.numbertotext.translation.NumberReducer;
+import com.joejag.numbertotext.translation.SentenceCreator;
 
 import java.util.List;
 
 public class NumberToTextMain {
 
-    private DictionaryBasedNumberReducer numberReducer = new DictionaryBasedNumberReducer(new BritishEnglishNumberDictionary());
+    private final NumberReducer reducer = new DictionaryBasedNumberReducer(new BritishEnglishNumberDictionary());
 
     public String translate(int input) {
         StringBuilder sb = new StringBuilder();
 
         for (NumberComponent component : new NumberBreaker().breakDown(input)) {
-            List<String> reduced = numberReducer.reduce(component.number);
-            sb.append(new NumberTranslator().translate(reduced, component.part));
+            List<String> reduced = reducer.toWords(component.number);
+            sb.append(new SentenceCreator().toSentence(reduced, component.part));
             sb.append(" ");
         }
 

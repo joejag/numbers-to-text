@@ -4,11 +4,11 @@ import com.joejag.numbertotext.breaker.NumberComponent;
 
 import java.util.List;
 
-public class NumberTranslator {
+public class SentenceCreator {
 
     StringBuilder sb = new StringBuilder();
 
-    public String translate(List<String> words, NumberComponent.Part part) {
+    public String toSentence(List<String> words, NumberComponent.Part part) {
         for (int i = 0; i < words.size(); i++) {
             String word = words.get(i);
 
@@ -17,12 +17,12 @@ public class NumberTranslator {
             handleHundredsWhichNeedAnAnd(i, word, words.size());
         }
 
-        addNumberPartIfNotHundered(part);
+        addNumberPartIfNotHundred(part);
 
         return sb.toString();
     }
 
-    private void addNumberPartIfNotHundered(NumberComponent.Part part) {
+    private void addNumberPartIfNotHundred(NumberComponent.Part part) {
         if (part != NumberComponent.Part.HUNDRED)
             sb.append(" ").append(part.toString().toLowerCase());
     }

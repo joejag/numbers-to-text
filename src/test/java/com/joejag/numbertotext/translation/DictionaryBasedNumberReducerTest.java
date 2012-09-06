@@ -22,14 +22,14 @@ public class DictionaryBasedNumberReducerTest {
     public void single_word_available_then_return_single_element() {
         when(dictionary.getListOfDescendingNumbers()).thenReturn(Arrays.asList(1));
         when(dictionary.wordFor(1)).thenReturn("1");
-        Assert.assertEquals(Arrays.asList("1"), new DictionaryBasedNumberReducer(dictionary).reduce(1));
+        Assert.assertEquals(Arrays.asList("1"), new DictionaryBasedNumberReducer(dictionary).toWords(1));
     }
 
     @Test
     public void two_words_available_then_return_single_element_if_unused() {
         when(dictionary.getListOfDescendingNumbers()).thenReturn(Arrays.asList(2, 1));
         when(dictionary.wordFor(1)).thenReturn("1");
-        assertEquals(Arrays.asList("1"), new DictionaryBasedNumberReducer(dictionary).reduce(1));
+        assertEquals(Arrays.asList("1"), new DictionaryBasedNumberReducer(dictionary).toWords(1));
     }
 
     @Test
@@ -37,7 +37,7 @@ public class DictionaryBasedNumberReducerTest {
         when(dictionary.getListOfDescendingNumbers()).thenReturn(Arrays.asList(20, 1));
         when(dictionary.wordFor(20)).thenReturn("2");
         when(dictionary.wordFor(1)).thenReturn("1");
-        assertEquals(Arrays.asList("2", "1"), new DictionaryBasedNumberReducer(dictionary).reduce(21));
+        assertEquals(Arrays.asList("2", "1"), new DictionaryBasedNumberReducer(dictionary).toWords(21));
     }
 
     // number higher ignored

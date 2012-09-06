@@ -13,7 +13,7 @@ public class DictionaryBasedNumberReducer implements NumberReducer {
         this.dictionary = dictionary;
     }
 
-    public List<String> reduce(int number) {
+    public List<String> toWords(int number) {
         List<String> tokens = new ArrayList<String>();
 
         int remainder = number;
