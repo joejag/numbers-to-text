@@ -2,8 +2,7 @@ package com.joejag.numbertotext.translation;
 
 import org.junit.Test;
 
-import static com.joejag.numbertotext.breaker.NumberComponent.NumberComponentPart;
-import static com.joejag.numbertotext.breaker.NumberComponent.NumberComponentPart.HUNDRED;
+import static com.joejag.numbertotext.breaker.NumberComponent.NumberComponentPart.*;
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 
@@ -33,11 +32,16 @@ public class NumberTranslatorTest {
 
     @Test
     public void when_in_thousands_a_word_is_appended() {
-        assertEquals("one hundred thousand", numberTranslator.translate(asList("one hundred"), NumberComponentPart.THOUSAND));
+        assertEquals("one hundred thousand", numberTranslator.translate(asList("one hundred"), THOUSAND));
+    }
+
+    @Test
+    public void when_in_millions_a_word_is_appended() {
+        assertEquals("one hundred million", numberTranslator.translate(asList("one hundred"), MILLION));
     }
 
     @Test
     public void when_in_thousands_a_word_is_appended_at_the_end() {
-        assertEquals("one hundred and five thousand", numberTranslator.translate(asList("one hundred", "five"), NumberComponentPart.THOUSAND));
+        assertEquals("one hundred and five thousand", numberTranslator.translate(asList("one hundred", "five"), THOUSAND));
     }
 }
