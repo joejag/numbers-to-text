@@ -4,11 +4,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class NumberTranslatorTest {
+public class AcceptanceTest {
+
+    private NumberTranslator numberTranslator = new NumberTranslator(new BritishEnglishNumberDictionary());
 
     @Test
     public void translate_1_to_one() {
-        assertEquals("one", new NumberTranslator().translate(1));
+        assertConversion("one", 1);
     }
 
     @Test
@@ -59,8 +61,7 @@ public class NumberTranslatorTest {
     }
 
     private void assertConversion(String expected, int input) {
-        assertEquals(expected, new NumberTranslator().translate(input));
+        assertEquals(expected, numberTranslator.translate(input));
     }
-
 
 }
