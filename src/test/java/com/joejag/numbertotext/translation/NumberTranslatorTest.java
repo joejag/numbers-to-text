@@ -2,7 +2,7 @@ package com.joejag.numbertotext.translation;
 
 import org.junit.Test;
 
-import static com.joejag.numbertotext.breaker.NumberComponent.NumberComponentPart.*;
+import static com.joejag.numbertotext.breaker.NumberComponent.Part.*;
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 

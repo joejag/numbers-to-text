@@ -2,7 +2,6 @@ package com.joejag.numbertotext;
 
 import com.joejag.numbertotext.breaker.NumberBreaker;
 import com.joejag.numbertotext.breaker.NumberComponent;
-import com.joejag.numbertotext.breaker.NumberComponents;
 import com.joejag.numbertotext.dictionary.BritishEnglishNumberDictionary;
 import com.joejag.numbertotext.translation.DictionaryBasedNumberReducer;
 import com.joejag.numbertotext.translation.NumberTranslator;
@@ -16,9 +15,7 @@ public class NumberToTextMain {
     public String translate(int input) {
         StringBuilder sb = new StringBuilder();
 
-        NumberComponents numberComponents = new NumberBreaker().breakDown(input);
-        List<NumberComponent> components = numberComponents.components;
-        for (NumberComponent component : components) {
+        for (NumberComponent component : new NumberBreaker().breakDown(input)) {
             List<String> reduced = numberReducer.reduce(component.number);
             sb.append(new NumberTranslator().translate(reduced, component.part));
             sb.append(" ");

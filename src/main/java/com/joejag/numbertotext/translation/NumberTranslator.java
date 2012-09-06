@@ -8,7 +8,7 @@ public class NumberTranslator {
 
     StringBuilder sb = new StringBuilder();
 
-    public String translate(List<String> words, NumberComponent.NumberComponentPart part) {
+    public String translate(List<String> words, NumberComponent.Part part) {
         for (int i = 0; i < words.size(); i++) {
             String word = words.get(i);
 
@@ -22,8 +22,8 @@ public class NumberTranslator {
         return sb.toString();
     }
 
-    private void addNumberPartIfNotHundered(NumberComponent.NumberComponentPart part) {
-        if (part != NumberComponent.NumberComponentPart.HUNDRED)
+    private void addNumberPartIfNotHundered(NumberComponent.Part part) {
+        if (part != NumberComponent.Part.HUNDRED)
             sb.append(" ").append(part.toString().toLowerCase());
     }
 

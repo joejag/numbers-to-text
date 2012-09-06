@@ -5,11 +5,11 @@ import com.joejag.numbertotext.utils.StringPadder;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.joejag.numbertotext.breaker.NumberComponent.NumberComponentPart.*;
+import static com.joejag.numbertotext.breaker.NumberComponent.Part.*;
 
 public class NumberBreaker {
 
-    public NumberComponents breakDown(int baseNumber) {
+    public List<NumberComponent> breakDown(int baseNumber) {
         List<NumberComponent> components = new ArrayList<NumberComponent>();
 
         String parts = createdAPaddedRepresentationOfTheBaseNumber(baseNumber);
@@ -18,11 +18,11 @@ public class NumberBreaker {
         addPartIfHasValue(components, parts, 6, 3, THOUSAND);
         addPartIfHasValue(components, parts, 3, 0, HUNDRED);
 
-        return new NumberComponents(components);
+        return components;
     }
 
     private void addPartIfHasValue(List<NumberComponent> components, String parts,
-                                   int negativeStart, int negativeFinish, NumberComponent.NumberComponentPart part) {
+                                   int negativeStart, int negativeFinish, NumberComponent.Part part) {
         int partialNumber = grabPartOfNumber(parts, negativeStart, negativeFinish);
         if (partialNumber != 0)
             components.add(new NumberComponent(part, partialNumber));
