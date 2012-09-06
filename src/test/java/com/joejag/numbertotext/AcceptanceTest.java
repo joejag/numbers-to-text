@@ -1,11 +1,9 @@
 package com.joejag.numbertotext;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-@Ignore(value = "Refactoring internals")
 public class AcceptanceTest {
 
     private NumberToText numberToText = new NumberToText();
@@ -20,7 +18,7 @@ public class AcceptanceTest {
         assertConversion("twenty one", 21);
     }
 
-//    @Test Pending
+    //    @Test Pending
     public void customer_provided_example_56_945_781() {
         assertConversion("fifty six million nine hundred and forty five thousand seven hundred and eighty one", 56945781);
     }
