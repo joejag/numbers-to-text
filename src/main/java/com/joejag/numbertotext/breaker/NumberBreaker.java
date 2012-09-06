@@ -1,9 +1,7 @@
-package com.joejag.numbertotext.translation;
+package com.joejag.numbertotext.breaker;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.joejag.numbertotext.translation.NumberComponent.NumberComponentPart.HUNDREDS;
 
 
 public class NumberBreaker {
@@ -12,7 +10,7 @@ public class NumberBreaker {
         List<NumberComponent> components = new ArrayList<NumberComponent>();
 
         if (baseNumber < 1000)
-            components.add(new NumberComponent(HUNDREDS, baseNumber));
+            components.add(new NumberComponent(NumberComponent.NumberComponentPart.HUNDREDS, baseNumber));
 
         return new NumberComponents(components);
     }

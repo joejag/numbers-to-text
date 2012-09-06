@@ -1,8 +1,8 @@
-package com.joejag.numbertotext.translation;
+package com.joejag.numbertotext.breaker;
 
 import org.junit.Test;
 
-import static com.joejag.numbertotext.translation.NumberComponent.NumberComponentPart.HUNDREDS;
+import static com.joejag.numbertotext.breaker.NumberComponent.NumberComponentPart.HUNDREDS;
 import static junit.framework.Assert.assertEquals;
 
 public class NumberBreakerTest {
