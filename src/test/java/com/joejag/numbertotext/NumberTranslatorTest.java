@@ -4,10 +4,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class NumberConvertorTest {
+public class NumberTranslatorTest {
 
     @Test
     public void convert1ToOne() {
-        assertEquals("one", new NumberConvertor().convert(1));
+        assertEquals("one", new NumberTranslator().translate(1));
     }
 }
