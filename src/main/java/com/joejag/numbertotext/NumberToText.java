@@ -1,14 +1,14 @@
 package com.joejag.numbertotext;
 
 import com.joejag.numbertotext.dictionary.BritishEnglishNumberDictionary;
-import com.joejag.numbertotext.translation.NumberReducer;
+import com.joejag.numbertotext.translation.DictionaryBasedNumberReducer;
 import com.joejag.numbertotext.translation.NumberTranslator;
 
 import java.util.List;
 
 public class NumberToText {
 
-    private NumberReducer numberReducer = new NumberReducer(new BritishEnglishNumberDictionary());
+    private DictionaryBasedNumberReducer numberReducer = new DictionaryBasedNumberReducer(new BritishEnglishNumberDictionary());
 
     public String translate(int input) {
         List<String> reduced = numberReducer.reduce(input);

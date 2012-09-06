@@ -86,6 +86,14 @@ public class AcceptanceTest {
         assertConversion("nine hundred and eighty", 980);
     }
 
+    @Test
+    public void translate_selection_of_other_numbers_below_a_million() {
+        assertConversion("one thousand", 1000);
+        assertConversion("two thousand five hundred", 2500);
+        assertConversion("twenty thousand five hundred", 20500);
+        assertConversion("two hundred thousand five hundred", 200500);
+    }
+
     private void assertConversion(String expected, int input) {
         assertEquals(expected, numberToText.translate(input));
     }
