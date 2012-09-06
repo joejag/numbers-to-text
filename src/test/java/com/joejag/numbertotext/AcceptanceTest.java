@@ -19,9 +19,8 @@ public class AcceptanceTest {
         assertConversion("twenty one", 21);
     }
 
-    @Test
-    @Ignore(value = "pending")
-    public void customer_provided_example_56945781() {
+//    @Test Pending
+    public void customer_provided_example_56_945_781() {
         assertConversion("fifty six million nine hundred and forty five thousand seven hundred and eighty one", 56945781);
     }
 
@@ -75,6 +74,17 @@ public class AcceptanceTest {
         assertConversion("seventy six", 76);
         assertConversion("eighty seven", 87);
         assertConversion("ninety eight", 98);
+    }
+
+    @Test
+    public void translate_selection_of_other_numbers_below_a_thousand() {
+        assertConversion("three hundred and twenty", 320);
+        assertConversion("four hundred and thirty", 430);
+        assertConversion("five hundred and forty", 540);
+        assertConversion("six hundred and fifty", 650);
+        assertConversion("seven hundred and sixty", 760);
+        assertConversion("eight hundred and seventy", 870);
+        assertConversion("nine hundred and eighty", 980);
     }
 
     private void assertConversion(String expected, int input) {

@@ -21,7 +21,11 @@ public class NumberTranslator {
             }
         }
 
-        return numberAsText.toString();
+
+        String s = numberAsText.toString();
+        s = s.replaceAll("hundred", "hundred and");
+
+        return s;
     }
 
     private void addSpaceIfNotTheFirstNumberAdded(StringBuilder numberAsText) {
