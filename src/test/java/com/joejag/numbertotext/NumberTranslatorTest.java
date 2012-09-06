@@ -42,6 +42,11 @@ public class NumberTranslatorTest {
         assertConversion("twenty", 20);
     }
 
+    @Test
+    public void translate_21() {
+        assertConversion("twenty one", 21);
+    }
+
     private void assertConversion(String expected, int input) {
         assertEquals(expected, new NumberTranslator().translate(input));
     }
