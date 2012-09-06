@@ -9,20 +9,19 @@ import static com.joejag.numbertotext.breaker.NumberComponent.Part.*;
 
 public class NumberBreaker {
 
+    private List<NumberComponent> components = new ArrayList<NumberComponent>();
+
     public List<NumberComponent> breakDown(int baseNumber) {
-        List<NumberComponent> components = new ArrayList<NumberComponent>();
+        String parts = createAPaddedRepresentationOfTheBaseNumber(baseNumber);
 
-        String parts = createdAPaddedRepresentationOfTheBaseNumber(baseNumber);
-
-        addPartIfHasValue(components, parts, 9, 6, MILLION);
-        addPartIfHasValue(components, parts, 6, 3, THOUSAND);
-        addPartIfHasValue(components, parts, 3, 0, HUNDRED);
+        addPartIfHasValue(parts, 9, 6, MILLION);
+        addPartIfHasValue(parts, 6, 3, THOUSAND);
+        addPartIfHasValue(parts, 3, 0, HUNDRED);
 
         return components;
     }
 
-    private void addPartIfHasValue(List<NumberComponent> components, String parts,
-                                   int negativeStart, int negativeFinish, NumberComponent.Part part) {
+    private void addPartIfHasValue(String parts, int negativeStart, int negativeFinish, NumberComponent.Part part) {
         int partialNumber = grabPartOfNumber(parts, negativeStart, negativeFinish);
         if (partialNumber != 0)
             components.add(new NumberComponent(part, partialNumber));
@@ -32,7 +31,7 @@ public class NumberBreaker {
         return Integer.valueOf(parts.substring(parts.length() - negativeStart, parts.length() - negativeFinish));
     }
 
-    private String createdAPaddedRepresentationOfTheBaseNumber(int baseNumber) {
+    private String createAPaddedRepresentationOfTheBaseNumber(int baseNumber) {
         return StringPadder.padLeft(String.valueOf(baseNumber), "0", 9);
     }
 }

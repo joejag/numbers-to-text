@@ -4,10 +4,9 @@ import com.joejag.numbertotext.breaker.NumberComponent;
 
 import java.util.List;
 
-/**
- * Deliberately made not thread safe to improve readability
- */
 public class SentenceCreator {
+
+    public static final String HUNDRED = "hundred";
 
     StringBuilder sb = new StringBuilder();
 
@@ -17,8 +16,8 @@ public class SentenceCreator {
             addWord(word);
         }
 
-        handleHundredsWhichNeedAnAnd();
-        addNumberPartIfNotHundred(part);
+        addAndIfHasHundredWithFurtherValue();
+        addNumberComponentPartIfNotHundred(part);
 
         return sb.toString();
     }
@@ -32,13 +31,13 @@ public class SentenceCreator {
         sb.append(word);
     }
 
-    private void handleHundredsWhichNeedAnAnd() {
+    private void addAndIfHasHundredWithFurtherValue() {
         String sentence = sb.toString();
-        if (sentence.contains("hundred") && !sentence.endsWith("hundred"))
-            sb.insert(sb.indexOf("hundred") + "hundred".length(), " and");
+        if (sentence.contains(HUNDRED) && !sentence.endsWith(HUNDRED))
+            sb.insert(sb.indexOf(HUNDRED) + HUNDRED.length(), " and");
     }
 
-    private void addNumberPartIfNotHundred(NumberComponent.Part part) {
+    private void addNumberComponentPartIfNotHundred(NumberComponent.Part part) {
         if (part != NumberComponent.Part.HUNDRED)
             sb.append(" ").append(part.toString().toLowerCase());
     }

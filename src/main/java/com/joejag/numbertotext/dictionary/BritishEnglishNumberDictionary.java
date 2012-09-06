@@ -19,9 +19,9 @@ public class BritishEnglishNumberDictionary implements NumberDictionary {
         put(1, "one");
     }};
 
-    private final Map<Integer, String> others = new LinkedHashMap<Integer, String>() {{
+    private final Map<Integer, String> fullDictionary = new LinkedHashMap<Integer, String>() {{
         for (int integer : singleDigits.keySet()) {
-            put(integer * 100, singleDigits.get(integer) +  " hundred");
+            put(integer * 100, singleDigits.get(integer) + " hundred");
         }
 
         put(90, "ninety");
@@ -47,10 +47,10 @@ public class BritishEnglishNumberDictionary implements NumberDictionary {
     }};
 
     public List<Integer> getListOfDescendingNumbers() {
-        return new ArrayList<Integer>(others.keySet());
+        return new ArrayList<Integer>(fullDictionary.keySet());
     }
 
     public String wordFor(int number) {
-        return others.get(number);
+        return fullDictionary.get(number);
     }
 }
