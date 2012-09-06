@@ -7,7 +7,15 @@ import java.util.Map;
 public class NumberTranslator {
 
     private Map<Integer, String> britishEnglish = new LinkedHashMap<Integer, String>() {{
+        put(90, "ninety");
+        put(80, "eighty");
+        put(70, "seventy");
+        put(60, "sixty");
+        put(50, "fifty");
+        put(40, "forty");
+        put(30, "thirty");
         put(20, "twenty");
+
         put(19, "nineteen");
         put(18, "eighteen");
         put(17, "seventeen");
@@ -17,6 +25,7 @@ public class NumberTranslator {
         put(13, "thirteen");
         put(12, "twelve");
         put(11, "eleven");
+
         put(10, "ten");
         put(9, "nine");
         put(8, "eight");
@@ -33,18 +42,22 @@ public class NumberTranslator {
         StringBuilder numberAsText = new StringBuilder();
 
         int remainder = number;
-        for (int integer : britishEnglish.keySet()) {
-            if (integer <= remainder) {
-                if (numberAsText.length() > 0) {
-                    numberAsText.append(" ");
-                }
 
+        for (int integer : britishEnglish.keySet()) {
+            if (remainder >= integer) {
+                addSpaceIfNotTheFirstNumberAdded(numberAsText);
                 numberAsText.append(britishEnglish.get(integer));
                 remainder -= integer;
             }
         }
 
         return numberAsText.toString();
+    }
+
+    private void addSpaceIfNotTheFirstNumberAdded(StringBuilder numberAsText) {
+        if (numberAsText.length() > 0) {
+            numberAsText.append(" ");
+        }
     }
 
 }

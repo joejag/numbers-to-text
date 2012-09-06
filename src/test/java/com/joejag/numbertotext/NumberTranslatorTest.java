@@ -47,6 +47,17 @@ public class NumberTranslatorTest {
         assertConversion("twenty one", 21);
     }
 
+    @Test
+    public void translate_selection_of_other_numbers_below_a_hundred() {
+        assertConversion("thirty two", 32);
+        assertConversion("forty three", 43);
+        assertConversion("fifty four", 54);
+        assertConversion("sixty five", 65);
+        assertConversion("seventy six", 76);
+        assertConversion("eighty seven", 87);
+        assertConversion("ninety eight", 98);
+    }
+
     private void assertConversion(String expected, int input) {
         assertEquals(expected, new NumberTranslator().translate(input));
     }
