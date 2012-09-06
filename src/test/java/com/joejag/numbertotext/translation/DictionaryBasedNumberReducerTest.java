@@ -40,4 +40,8 @@ public class DictionaryBasedNumberReducerTest {
         assertEquals(Arrays.asList("2", "1"), new DictionaryBasedNumberReducer(dictionary).reduce(21));
     }
 
+    // number higher ignored
+
+    // number lower ignored
+
 }
