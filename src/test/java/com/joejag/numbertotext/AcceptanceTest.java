@@ -1,12 +1,29 @@
 package com.joejag.numbertotext;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class AcceptanceTest {
 
-    private NumberTranslator numberTranslator = new NumberTranslator(new BritishEnglishNumberDictionary());
+    private NumberToText numberToText = new NumberToText();
+
+    @Test
+    public void customer_provided_example_1() {
+        assertConversion("one", 1);
+    }
+
+    @Test
+    public void customer_provided_example_21() {
+        assertConversion("twenty one", 21);
+    }
+
+    @Test
+    @Ignore(value = "pending")
+    public void customer_provided_example_56945781() {
+        assertConversion("fifty six million nine hundred and forty five thousand seven hundred and eighty one", 56945781);
+    }
 
     @Test
     public void translate_1_to_one() {
@@ -61,7 +78,7 @@ public class AcceptanceTest {
     }
 
     private void assertConversion(String expected, int input) {
-        assertEquals(expected, numberTranslator.translate(input));
+        assertEquals(expected, numberToText.translate(input));
     }
 
 }
