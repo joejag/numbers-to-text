@@ -13,10 +13,10 @@ public class NumberTranslator {
 
         int remainder = number;
 
-        for (int integer : dictionary.getDictionary().keySet()) {
+        for (int integer : dictionary.getListOfDescendingNumbers()) {
             if (remainder >= integer) {
                 addSpaceIfNotTheFirstNumberAdded(numberAsText);
-                numberAsText.append(dictionary.getDictionary().get(integer));
+                numberAsText.append(dictionary.wordFor(integer));
                 remainder -= integer;
             }
         }

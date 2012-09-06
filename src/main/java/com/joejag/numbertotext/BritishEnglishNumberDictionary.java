@@ -1,6 +1,8 @@
 package com.joejag.numbertotext;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class BritishEnglishNumberDictionary implements NumberDictionary {
@@ -37,7 +39,11 @@ public class BritishEnglishNumberDictionary implements NumberDictionary {
         put(1, "one");
     }};
 
-    public Map<Integer, String> getDictionary() {
-        return britishEnglish;
+    public List<Integer> getListOfDescendingNumbers() {
+        return new ArrayList<Integer>(britishEnglish.keySet());
+    }
+
+    public String wordFor(int number) {
+        return britishEnglish.get(number);
     }
 }
