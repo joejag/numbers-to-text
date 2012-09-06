@@ -1,5 +1,9 @@
 package com.joejag.numbertotext;
 
+import com.joejag.numbertotext.dictionary.BritishEnglishNumberDictionary;
+import com.joejag.numbertotext.translation.NumberReducer;
+import com.joejag.numbertotext.translation.NumberTranslator;
+
 import java.util.List;
 
 public class NumberToText {

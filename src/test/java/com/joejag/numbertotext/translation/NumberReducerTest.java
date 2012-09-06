@@ -1,5 +1,7 @@
-package com.joejag.numbertotext;
+package com.joejag.numbertotext.translation;
 
+import com.joejag.numbertotext.dictionary.NumberDictionary;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -20,7 +22,7 @@ public class NumberReducerTest {
     public void single_word_available_then_return_single_element() {
         when(dictionary.getListOfDescendingNumbers()).thenReturn(Arrays.asList(1));
         when(dictionary.wordFor(1)).thenReturn("1");
-        assertEquals(Arrays.asList("1"), new NumberReducer(dictionary).reduce(1));
+        Assert.assertEquals(Arrays.asList("1"), new NumberReducer(dictionary).reduce(1));
     }
 
     @Test

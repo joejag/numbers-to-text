@@ -1,4 +1,4 @@
-package com.joejag.numbertotext;
+package com.joejag.numbertotext.translation;
 
 import java.util.List;
 

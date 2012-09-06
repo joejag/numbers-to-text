@@ -1,4 +1,6 @@
-package com.joejag.numbertotext;
+package com.joejag.numbertotext.translation;
+
+import com.joejag.numbertotext.dictionary.NumberDictionary;
 
 import java.util.ArrayList;
 import java.util.List;

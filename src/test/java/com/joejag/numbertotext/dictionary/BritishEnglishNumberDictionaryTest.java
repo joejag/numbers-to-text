@@ -1,5 +1,6 @@
-package com.joejag.numbertotext;
+package com.joejag.numbertotext.dictionary;
 
+import com.joejag.numbertotext.dictionary.BritishEnglishNumberDictionary;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
