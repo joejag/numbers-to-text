@@ -4,27 +4,23 @@ import com.joejag.numbertotext.breaker.NumberComponent;
 
 import java.util.List;
 
+/**
+ * Deliberately made not thread safe to improve readability
+ */
 public class SentenceCreator {
 
     StringBuilder sb = new StringBuilder();
 
     public String toSentence(List<String> words, NumberComponent.Part part) {
-        for (int i = 0; i < words.size(); i++) {
-            String word = words.get(i);
-
+        for (String word : words) {
             addSpaceIfWordAlreadyPresent();
             addWord(word);
-            handleHundredsWhichNeedAnAnd(i, word, words.size());
         }
 
+        handleHundredsWhichNeedAnAnd();
         addNumberPartIfNotHundred(part);
 
         return sb.toString();
-    }
-
-    private void addNumberPartIfNotHundred(NumberComponent.Part part) {
-        if (part != NumberComponent.Part.HUNDRED)
-            sb.append(" ").append(part.toString().toLowerCase());
     }
 
     private void addSpaceIfWordAlreadyPresent() {
@@ -36,8 +32,14 @@ public class SentenceCreator {
         sb.append(word);
     }
 
-    private void handleHundredsWhichNeedAnAnd(int i, String word, int size) {
-        if (word.contains("hundred") && size - 1 != i)
-            sb.append(" and");
+    private void handleHundredsWhichNeedAnAnd() {
+        String sentence = sb.toString();
+        if (sentence.contains("hundred") && !sentence.endsWith("hundred"))
+            sb.insert(sb.indexOf("hundred") + "hundred".length(), " and");
+    }
+
+    private void addNumberPartIfNotHundred(NumberComponent.Part part) {
+        if (part != NumberComponent.Part.HUNDRED)
+            sb.append(" ").append(part.toString().toLowerCase());
     }
 }
