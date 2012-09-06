@@ -6,23 +6,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.joejag.numbertotext.breaker.NumberComponent.Part.*;
+import static java.util.Arrays.asList;
 
 public class NumberBreaker {
 
     private List<NumberComponent> components = new ArrayList<NumberComponent>();
 
-    public List<NumberComponent> breakDown(int baseNumber) {
-        String parts = createAPaddedRepresentationOfTheBaseNumber(baseNumber);
+    public List<NumberComponent> breakDown(int baseNumberAsInt) {
+        String baseNumber = createAPaddedRepresentationOfTheBaseNumber(baseNumberAsInt);
 
-        addPartIfHasValue(parts, 9, 6, MILLION);
-        addPartIfHasValue(parts, 6, 3, THOUSAND);
-        addPartIfHasValue(parts, 3, 0, HUNDRED);
+        for (NumberComponent.Part part : asList(MILLION, THOUSAND, HUNDRED))
+            addPartIfHasValue(baseNumber, part);
 
         return components;
     }
 
-    private void addPartIfHasValue(String parts, int negativeStart, int negativeFinish, NumberComponent.Part part) {
-        int partialNumber = grabPartOfNumber(parts, negativeStart, negativeFinish);
+    private void addPartIfHasValue(String parts, NumberComponent.Part part) {
+        int partialNumber = grabPartOfNumber(parts, part.getStartIndexInNumber(), part.getEndIndexInNumber());
         if (partialNumber != 0)
             components.add(new NumberComponent(part, partialNumber));
     }
@@ -32,6 +32,6 @@ public class NumberBreaker {
     }
 
     private String createAPaddedRepresentationOfTheBaseNumber(int baseNumber) {
-        return StringPadder.padLeft(String.valueOf(baseNumber), "0", 9);
+        return StringPadder.padLeft(String.valueOf(baseNumber), "0", MILLION.getStartIndexInNumber());
     }
 }
