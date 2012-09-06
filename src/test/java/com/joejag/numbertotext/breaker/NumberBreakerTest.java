@@ -34,6 +34,15 @@ public class NumberBreakerTest {
         assertPart(components.components.get(2), 100, HUNDREDS);
     }
 
+    @Test
+    public void number_without_thousands_misses_them_out() {
+        NumberComponents components = new NumberBreaker().breakDown(10000020);
+        assertEquals(2, components.components.size());
+
+        assertPart(components.components.get(0), 10, MILLIONS);
+        assertPart(components.components.get(1), 20, HUNDREDS);
+    }
+
     private void assertPart(NumberComponent component, int expectedNumber, NumberComponent.NumberComponentPart expectedPart) {
         assertEquals(expectedNumber, component.number);
         assertEquals(expectedPart, component.part);
