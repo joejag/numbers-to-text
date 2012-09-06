@@ -9,12 +9,11 @@ import com.joejag.numbertotext.translation.NumberTranslator;
 
 import java.util.List;
 
-public class NumberToText {
+public class NumberToTextMain {
 
     private DictionaryBasedNumberReducer numberReducer = new DictionaryBasedNumberReducer(new BritishEnglishNumberDictionary());
 
     public String translate(int input) {
-
         StringBuilder sb = new StringBuilder();
 
         NumberComponents numberComponents = new NumberBreaker().breakDown(input);
@@ -26,6 +25,9 @@ public class NumberToText {
         }
 
         return sb.toString().trim();
+    }
 
+    public static void main(String[] args) {
+        new NumberToTextMain().translate(Integer.parseInt(args[0]));
     }
 }

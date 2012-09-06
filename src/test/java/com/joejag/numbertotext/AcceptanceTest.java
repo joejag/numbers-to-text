@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class AcceptanceTest {
 
-    private NumberToText numberToText = new NumberToText();
+    private NumberToTextMain numberToText = new NumberToTextMain();
 
     @Test
     public void customer_provided_example_1() {
