@@ -3,7 +3,7 @@ package com.joejag.numbertotext.breaker;
 public class NumberComponent {
 
     public enum NumberComponentPart {
-        MILLIONS, THOUSANDS, HUNDREDS
+        MILLION, THOUSAND, HUNDRED
     }
 
     public final NumberComponentPart part;

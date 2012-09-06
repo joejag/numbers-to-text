@@ -14,9 +14,9 @@ public class NumberBreaker {
 
         String parts = createdAPaddedRepresentationOfTheBaseNumber(baseNumber);
 
-        addPartIfHasValue(components, parts, 9, 6, MILLIONS);
-        addPartIfHasValue(components, parts, 6, 3, THOUSANDS);
-        addPartIfHasValue(components, parts, 3, 0, HUNDREDS);
+        addPartIfHasValue(components, parts, 9, 6, MILLION);
+        addPartIfHasValue(components, parts, 6, 3, THOUSAND);
+        addPartIfHasValue(components, parts, 3, 0, HUNDRED);
 
         return new NumberComponents(components);
     }

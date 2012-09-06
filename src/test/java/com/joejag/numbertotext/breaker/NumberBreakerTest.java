@@ -12,7 +12,7 @@ public class NumberBreakerTest {
         NumberComponents components = new NumberBreaker().breakDown(100);
         assertEquals(1, components.components.size());
 
-        assertPart(components.components.get(0), 100, HUNDREDS);
+        assertPart(components.components.get(0), 100, HUNDRED);
     }
 
     @Test
@@ -20,8 +20,8 @@ public class NumberBreakerTest {
         NumberComponents components = new NumberBreaker().breakDown(1100);
         assertEquals(2, components.components.size());
 
-        assertPart(components.components.get(0), 1, THOUSANDS);
-        assertPart(components.components.get(1), 100, HUNDREDS);
+        assertPart(components.components.get(0), 1, THOUSAND);
+        assertPart(components.components.get(1), 100, HUNDRED);
     }
 
     @Test
@@ -29,9 +29,9 @@ public class NumberBreakerTest {
         NumberComponents components = new NumberBreaker().breakDown(100100100);
         assertEquals(3, components.components.size());
 
-        assertPart(components.components.get(0), 100, MILLIONS);
-        assertPart(components.components.get(1), 100, THOUSANDS);
-        assertPart(components.components.get(2), 100, HUNDREDS);
+        assertPart(components.components.get(0), 100, MILLION);
+        assertPart(components.components.get(1), 100, THOUSAND);
+        assertPart(components.components.get(2), 100, HUNDRED);
     }
 
     @Test
@@ -39,8 +39,8 @@ public class NumberBreakerTest {
         NumberComponents components = new NumberBreaker().breakDown(10000020);
         assertEquals(2, components.components.size());
 
-        assertPart(components.components.get(0), 10, MILLIONS);
-        assertPart(components.components.get(1), 20, HUNDREDS);
+        assertPart(components.components.get(0), 10, MILLION);
+        assertPart(components.components.get(1), 20, HUNDRED);
     }
 
     private void assertPart(NumberComponent component, int expectedNumber, NumberComponent.NumberComponentPart expectedPart) {

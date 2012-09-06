@@ -1,12 +1,14 @@
 package com.joejag.numbertotext.translation;
 
+import com.joejag.numbertotext.breaker.NumberComponent;
+
 import java.util.List;
 
 public class NumberTranslator {
 
     StringBuilder sb = new StringBuilder();
 
-    public String translate(List<String> words) {
+    public String translate(List<String> words, NumberComponent.NumberComponentPart part) {
         for (int i = 0; i < words.size(); i++) {
             String word = words.get(i);
 
@@ -15,7 +17,14 @@ public class NumberTranslator {
             handleHundredsWhichNeedAnAnd(i, word, words.size());
         }
 
+        addNumberPartIfNotHundered(part);
+
         return sb.toString();
+    }
+
+    private void addNumberPartIfNotHundered(NumberComponent.NumberComponentPart part) {
+        if (part != NumberComponent.NumberComponentPart.HUNDRED)
+            sb.append(" ").append(part.toString().toLowerCase());
     }
 
     private void addSpaceIfWordAlreadyPresent() {

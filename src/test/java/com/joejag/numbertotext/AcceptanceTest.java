@@ -1,6 +1,5 @@
 package com.joejag.numbertotext;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -19,7 +18,7 @@ public class AcceptanceTest {
         assertConversion("twenty one", 21);
     }
 
-    //    @Test Pending
+    @Test
     public void customer_provided_example_56_945_781() {
         assertConversion("fifty six million nine hundred and forty five thousand seven hundred and eighty one", 56945781);
     }
@@ -88,7 +87,6 @@ public class AcceptanceTest {
     }
 
     @Test
-    @Ignore
     public void translate_selection_of_other_numbers_below_a_million() {
         assertConversion("one thousand", 1000);
         assertConversion("two thousand five hundred", 2500);
