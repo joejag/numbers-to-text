@@ -19,7 +19,11 @@ public class BritishEnglishNumberDictionary implements NumberDictionary {
         put(1, "one");
     }};
 
-    private final Map<Integer, String> doubleDigits = new LinkedHashMap<Integer, String>() {{
+    private final Map<Integer, String> others = new LinkedHashMap<Integer, String>() {{
+        for (int integer : singleDigits.keySet()) {
+            put(integer * 100, singleDigits.get(integer) +  " hundred");
+        }
+
         put(90, "ninety");
         put(80, "eighty");
         put(70, "seventy");
@@ -38,14 +42,7 @@ public class BritishEnglishNumberDictionary implements NumberDictionary {
         put(12, "twelve");
         put(11, "eleven");
         put(10, "ten");
-    }};
 
-    private final Map<Integer, String> others = new LinkedHashMap<Integer, String>() {{
-        for (int integer : singleDigits.keySet()) {
-            put(integer * 100, singleDigits.get(integer) +  " hundred");
-        }
-
-        putAll(doubleDigits);
         putAll(singleDigits);
     }};
 
@@ -54,7 +51,6 @@ public class BritishEnglishNumberDictionary implements NumberDictionary {
     }
 
     public String wordFor(int number) {
-
         return others.get(number);
     }
 }
