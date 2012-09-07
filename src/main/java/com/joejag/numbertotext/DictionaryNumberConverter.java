@@ -4,7 +4,7 @@ import com.joejag.numbertotext.breaker.NumberBreaker;
 import com.joejag.numbertotext.breaker.NumberComponent;
 import com.joejag.numbertotext.dictionary.NumberDictionary;
 import com.joejag.numbertotext.dictionary.SentenceCreator;
-import com.joejag.numbertotext.translation.DictionaryBasedNumberReducer;
+import com.joejag.numbertotext.reducer.DictionaryBasedNumberReducer;
 import com.joejag.numbertotext.utils.Strings;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DictionaryNumberConverter {
 
-    private NumberDictionary dictionary;
+    private final NumberDictionary dictionary;
     private final SentenceCreator creator;
     private final DictionaryBasedNumberReducer reducer;
 

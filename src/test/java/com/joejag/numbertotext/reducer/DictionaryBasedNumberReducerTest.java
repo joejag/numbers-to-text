@@ -1,4 +1,4 @@
-package com.joejag.numbertotext.translation;
+package com.joejag.numbertotext.reducer;
 
 import com.joejag.numbertotext.dictionary.NumberDictionary;
 import org.junit.Assert;
