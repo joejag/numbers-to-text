@@ -1,13 +1,14 @@
 package com.joejag.numbertotext.dictionary.british;
 
 import com.joejag.numbertotext.breaker.Part;
+import com.joejag.numbertotext.dictionary.SentenceCreator;
 import com.joejag.numbertotext.utils.Strings;
 
 import java.util.List;
 
 import static com.joejag.numbertotext.dictionary.british.BritishEnglishNumberDictionary.HUNDRED;
 
-public class BritishEnglishSentenceCreator {
+public class BritishEnglishSentenceCreator implements SentenceCreator {
 
     public String toSentence(List<String> words, Part part) {
         StringBuilder sb = new StringBuilder(Strings.join(words));

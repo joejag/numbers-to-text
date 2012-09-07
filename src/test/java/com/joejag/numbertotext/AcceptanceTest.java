@@ -104,7 +104,7 @@ public class AcceptanceTest {
     }
 
     private void assertConversion(String expected, int input) {
-        assertEquals(expected, numberToText.translate(input));
+        assertEquals(expected, numberToText.translateToBritishEnglish(input));
     }
 
 }

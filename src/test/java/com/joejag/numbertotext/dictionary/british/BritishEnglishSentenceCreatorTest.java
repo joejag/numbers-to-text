@@ -1,5 +1,6 @@
 package com.joejag.numbertotext.dictionary.british;
 
+import com.joejag.numbertotext.dictionary.SentenceCreator;
 import org.junit.Test;
 
 import static com.joejag.numbertotext.breaker.PartsForTestingWith.*;
@@ -8,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class BritishEnglishSentenceCreatorTest {
 
-    private BritishEnglishSentenceCreator sentenceCreator = new BritishEnglishSentenceCreator();
+    private SentenceCreator sentenceCreator = new BritishEnglishSentenceCreator();
 
     @Test
     public void single_element_is_returned_alone() {
