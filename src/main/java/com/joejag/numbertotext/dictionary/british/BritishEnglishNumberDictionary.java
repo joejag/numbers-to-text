@@ -1,7 +1,7 @@
 package com.joejag.numbertotext.dictionary.british;
 
+import com.joejag.numbertotext.breaker.Part;
 import com.joejag.numbertotext.dictionary.NumberDictionary;
-import com.joejag.numbertotext.dictionary.Part;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

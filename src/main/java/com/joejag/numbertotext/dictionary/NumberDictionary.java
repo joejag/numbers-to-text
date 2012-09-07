@@ -1,5 +1,7 @@
 package com.joejag.numbertotext.dictionary;
 
+import com.joejag.numbertotext.breaker.Part;
+
 import java.util.List;
 
 public interface NumberDictionary {

@@ -1,4 +1,4 @@
-package com.joejag.numbertotext.dictionary;
+package com.joejag.numbertotext.breaker;
 
 public class Part {
 

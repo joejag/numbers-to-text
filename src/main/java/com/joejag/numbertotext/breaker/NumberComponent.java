@@ -1,7 +1,5 @@
 package com.joejag.numbertotext.breaker;
 
-import com.joejag.numbertotext.dictionary.Part;
-
 public class NumberComponent {
 
     public final Part part;

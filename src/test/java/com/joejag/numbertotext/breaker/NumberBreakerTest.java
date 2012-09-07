@@ -1,6 +1,5 @@
 package com.joejag.numbertotext.breaker;
 
-import com.joejag.numbertotext.dictionary.Part;
 import org.junit.Test;
 
 import java.util.List;
