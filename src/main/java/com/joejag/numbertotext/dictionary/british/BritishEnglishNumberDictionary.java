@@ -28,7 +28,7 @@ public class BritishEnglishNumberDictionary implements NumberDictionary {
 
     private final Map<Integer, String> fullDictionary = new LinkedHashMap<Integer, String>() {{
         for (int integer : singleDigits.keySet()) {
-            put(integer * 100, singleDigits.get(integer) + " hundred");
+            put(integer * 100, singleDigits.get(integer) + " " + HUNDRED);
         }
 
         put(90, "ninety");
