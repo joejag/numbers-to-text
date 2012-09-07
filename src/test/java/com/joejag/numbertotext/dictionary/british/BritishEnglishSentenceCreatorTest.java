@@ -1,14 +1,14 @@
-package com.joejag.numbertotext.translation;
+package com.joejag.numbertotext.dictionary.british;
 
 import org.junit.Test;
 
-import static com.joejag.numbertotext.breaker.NumberComponent.Part.*;
+import static com.joejag.numbertotext.dictionary.PartsForTestingWith.*;
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 
-public class SentenceCreatorTest {
+public class BritishEnglishSentenceCreatorTest {
 
-    private SentenceCreator sentenceCreator = new SentenceCreator();
+    private BritishEnglishSentenceCreator sentenceCreator = new BritishEnglishSentenceCreator();
 
     @Test
     public void single_element_is_returned_alone() {

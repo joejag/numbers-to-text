@@ -1,5 +1,7 @@
 package com.joejag.numbertotext.breaker;
 
+import com.joejag.numbertotext.dictionary.Part;
+
 public class NumberComponent {
 
     public final Part part;
@@ -10,24 +12,5 @@ public class NumberComponent {
         this.number = number;
     }
 
-    public enum Part {
-        MILLION(9, 6), THOUSAND(6, 3), HUNDRED(3, 0);
 
-        private int startIndexInNumber;
-        private int endIndexInNumber;
-
-        Part(int startIndexInNumber, int endIndexInNumber) {
-
-            this.startIndexInNumber = startIndexInNumber;
-            this.endIndexInNumber = endIndexInNumber;
-        }
-
-        public int getStartIndexInNumber() {
-            return startIndexInNumber;
-        }
-
-        public int getEndIndexInNumber() {
-            return endIndexInNumber;
-        }
-    }
 }

@@ -2,23 +2,25 @@ package com.joejag.numbertotext;
 
 import com.joejag.numbertotext.breaker.NumberBreaker;
 import com.joejag.numbertotext.breaker.NumberComponent;
-import com.joejag.numbertotext.dictionary.BritishEnglishNumberDictionary;
+import com.joejag.numbertotext.dictionary.NumberDictionary;
+import com.joejag.numbertotext.dictionary.british.BritishEnglishNumberDictionary;
+import com.joejag.numbertotext.dictionary.british.BritishEnglishSentenceCreator;
 import com.joejag.numbertotext.translation.DictionaryBasedNumberReducer;
-import com.joejag.numbertotext.translation.NumberReducer;
-import com.joejag.numbertotext.translation.SentenceCreator;
 
 import java.util.List;
 
 public class NumberToTextMain {
 
-    private final NumberReducer reducer = new DictionaryBasedNumberReducer(new BritishEnglishNumberDictionary());
-
     public String translate(int input) {
+        return translate(input, new BritishEnglishNumberDictionary());
+    }
+
+    private String translate(int input, NumberDictionary dictionary) {
         StringBuilder sb = new StringBuilder();
 
-        for (NumberComponent component : new NumberBreaker().breakDown(input)) {
-            List<String> reduced = reducer.toWords(component.number);
-            sb.append(new SentenceCreator().toSentence(reduced, component.part));
+        for (NumberComponent component : new NumberBreaker(dictionary.parts()).breakDown(input)) {
+            List<String> reduced = new DictionaryBasedNumberReducer(dictionary).toWords(component.number);
+            sb.append(new BritishEnglishSentenceCreator().toSentence(reduced, component.part));
             sb.append(" ");
         }
 

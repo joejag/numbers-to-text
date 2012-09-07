@@ -6,4 +6,6 @@ public interface NumberDictionary {
     List<Integer> getListOfDescendingNumbers();
 
     String wordFor(int number);
+
+    List<Part> parts();
 }

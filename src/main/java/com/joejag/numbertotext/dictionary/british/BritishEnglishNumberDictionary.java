@@ -1,11 +1,18 @@
-package com.joejag.numbertotext.dictionary;
+package com.joejag.numbertotext.dictionary.british;
+
+import com.joejag.numbertotext.dictionary.NumberDictionary;
+import com.joejag.numbertotext.dictionary.Part;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Arrays.asList;
+
 public class BritishEnglishNumberDictionary implements NumberDictionary {
+
+    public static final String HUNDRED = "hundred";
 
     private final Map<Integer, String> singleDigits = new LinkedHashMap<Integer, String>() {{
         put(9, "nine");
@@ -52,5 +59,9 @@ public class BritishEnglishNumberDictionary implements NumberDictionary {
 
     public String wordFor(int number) {
         return fullDictionary.get(number);
+    }
+
+    public List<Part> parts() {
+        return asList(new Part("million", 9, 6), new Part("thousand", 6, 3), new Part(HUNDRED, 3, 0));
     }
 }

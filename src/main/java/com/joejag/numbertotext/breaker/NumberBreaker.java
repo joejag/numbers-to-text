@@ -1,28 +1,31 @@
 package com.joejag.numbertotext.breaker;
 
+import com.joejag.numbertotext.dictionary.Part;
 import com.joejag.numbertotext.utils.StringPadder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.joejag.numbertotext.breaker.NumberComponent.Part.*;
-import static java.util.Arrays.asList;
-
 public class NumberBreaker {
 
     private List<NumberComponent> components = new ArrayList<NumberComponent>();
+    private List<Part> parts;
+
+    public NumberBreaker(List<Part> parts) {
+        this.parts = parts;
+    }
 
     public List<NumberComponent> breakDown(int baseNumberAsInt) {
         String baseNumber = createAPaddedRepresentationOfTheBaseNumber(baseNumberAsInt);
 
-        for (NumberComponent.Part part : asList(MILLION, THOUSAND, HUNDRED))
+        for (Part part : parts)
             addPartIfHasValue(baseNumber, part);
 
         return components;
     }
 
-    private void addPartIfHasValue(String parts, NumberComponent.Part part) {
-        int partialNumber = grabPartOfNumber(parts, part.getStartIndexInNumber(), part.getEndIndexInNumber());
+    private void addPartIfHasValue(String parts, Part part) {
+        int partialNumber = grabPartOfNumber(parts, part.startIndexInNumber, part.endIndexInNumber);
         if (partialNumber != 0)
             components.add(new NumberComponent(part, partialNumber));
     }
@@ -32,6 +35,6 @@ public class NumberBreaker {
     }
 
     private String createAPaddedRepresentationOfTheBaseNumber(int baseNumber) {
-        return StringPadder.padLeft(String.valueOf(baseNumber), "0", MILLION.getStartIndexInNumber());
+        return StringPadder.padLeft(String.valueOf(baseNumber), "0", parts.get(0).startIndexInNumber);
     }
 }
