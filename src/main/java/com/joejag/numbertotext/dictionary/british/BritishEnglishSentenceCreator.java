@@ -1,6 +1,7 @@
 package com.joejag.numbertotext.dictionary.british;
 
 import com.joejag.numbertotext.dictionary.Part;
+import com.joejag.numbertotext.utils.Strings;
 
 import java.util.List;
 
@@ -8,36 +9,22 @@ import static com.joejag.numbertotext.dictionary.british.BritishEnglishNumberDic
 
 public class BritishEnglishSentenceCreator {
 
-    StringBuilder sb = new StringBuilder();
-
     public String toSentence(List<String> words, Part part) {
-        for (String word : words) {
-            addSpaceIfWordAlreadyPresent();
-            addWord(word);
-        }
+        StringBuilder sb = new StringBuilder(Strings.join(words));
 
-        addAndIfHasHundredWithFurtherValue();
-        addNumberComponentPartIfNotHundred(part);
+        addAndIfHasHundredWithFurtherValue(sb);
+        addNumberComponentPartIfNotHundred(sb, part);
 
         return sb.toString();
     }
 
-    private void addSpaceIfWordAlreadyPresent() {
-        if (sb.length() > 0)
-            sb.append(" ");
-    }
-
-    private void addWord(String word) {
-        sb.append(word);
-    }
-
-    private void addAndIfHasHundredWithFurtherValue() {
+    private void addAndIfHasHundredWithFurtherValue(StringBuilder sb) {
         String sentence = sb.toString();
         if (sentence.contains(HUNDRED) && !sentence.endsWith(HUNDRED))
             sb.insert(sb.indexOf(HUNDRED) + HUNDRED.length(), " and");
     }
 
-    private void addNumberComponentPartIfNotHundred(Part part) {
+    private void addNumberComponentPartIfNotHundred(StringBuilder sb, Part part) {
         if (!part.name.equals(HUNDRED))
             sb.append(" ").append(part.name);
     }

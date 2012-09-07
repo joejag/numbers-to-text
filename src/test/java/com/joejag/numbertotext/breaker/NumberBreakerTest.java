@@ -11,7 +11,6 @@ import static junit.framework.Assert.assertEquals;
 
 public class NumberBreakerTest {
 
-
     NumberBreaker breaker = new NumberBreaker(asList(MILLION, THOUSAND, HUNDRED));
 
     @Test

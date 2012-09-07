@@ -1,7 +1,7 @@
 package com.joejag.numbertotext.breaker;
 
 import com.joejag.numbertotext.dictionary.Part;
-import com.joejag.numbertotext.utils.StringPadder;
+import com.joejag.numbertotext.utils.Strings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +35,6 @@ public class NumberBreaker {
     }
 
     private String createAPaddedRepresentationOfTheBaseNumber(int baseNumber) {
-        return StringPadder.padLeft(String.valueOf(baseNumber), "0", parts.get(0).startIndexInNumber);
+        return Strings.padLeft(String.valueOf(baseNumber), "0", parts.get(0).startIndexInNumber);
     }
 }
