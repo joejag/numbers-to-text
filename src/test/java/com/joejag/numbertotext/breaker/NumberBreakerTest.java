@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static com.joejag.numbertotext.dictionary.PartsForTestingWith.*;
+import static com.joejag.numbertotext.breaker.PartsForTestingWith.*;
 import static java.util.Arrays.asList;
 import static junit.framework.Assert.assertEquals;
 

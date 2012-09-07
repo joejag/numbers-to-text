@@ -1,6 +1,4 @@
-package com.joejag.numbertotext.dictionary;
-
-import com.joejag.numbertotext.breaker.Part;
+package com.joejag.numbertotext.breaker;
 
 public class PartsForTestingWith {
     public static final Part MILLION = new Part("million", 9, 6);
