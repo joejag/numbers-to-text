@@ -23,15 +23,23 @@ public class DictionaryNumberConverter {
     }
 
     public String toWords(int number) {
-        if (!dictionary.valueIsWithinRange(number))
-            throw new IllegalArgumentException("I cannot convert this number to words: " + number);
+        checkTheNumberIsSupportByThisDictionary(number);
 
         List<String> sentenceParts = new ArrayList<String>();
-        for (NumberComponent component : new NumberBreaker(dictionary.parts()).breakDown(number)) {
-            List<String> reduced = reducer.toWords(component.number);
-            sentenceParts.add(creator.toSentence(reduced, component.part));
+        for (NumberComponent component : breakTheNumberIntoParts(number)) {
+            List<String> basicWordsWithoutGrammar = reducer.toWords(component.number);
+            sentenceParts.add(creator.applyGrammarTo(basicWordsWithoutGrammar, component.part));
         }
 
         return Strings.join(sentenceParts);
+    }
+
+    private List<NumberComponent> breakTheNumberIntoParts(int number) {
+        return new NumberBreaker(dictionary.parts()).breakDown(number);
+    }
+
+    private void checkTheNumberIsSupportByThisDictionary(int number) {
+        if (!dictionary.valueIsWithinRange(number))
+            throw new IllegalArgumentException("I cannot convert this number to words: " + number);
     }
 }

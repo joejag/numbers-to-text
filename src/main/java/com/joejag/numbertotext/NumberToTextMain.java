@@ -18,6 +18,10 @@ public class NumberToTextMain {
     }
 
     public static void main(String[] args) {
-        new NumberToTextMain().translateToBritishEnglish(Integer.parseInt(args[0]));
+        NumberToTextMain main = new NumberToTextMain();
+        System.out.println(" ** Converting numbers to BritishEnglish");
+        for (String arg : args) {
+            System.out.println(" *** " + arg + " becomes " + main.translateToBritishEnglish(Integer.parseInt(arg)));
+        }
     }
 }

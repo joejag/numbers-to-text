@@ -10,7 +10,7 @@ import static com.joejag.numbertotext.dictionary.british.BritishEnglishNumberDic
 
 public class BritishEnglishSentenceCreator implements SentenceCreator {
 
-    public String toSentence(List<String> words, Part part) {
+    public String applyGrammarTo(List<String> words, Part part) {
         StringBuilder sb = new StringBuilder(Strings.join(words));
 
         addAndIfHasHundredPartWithFurtherValue(sb);
