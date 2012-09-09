@@ -2,31 +2,9 @@ package com.joejag.numbertotext;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static com.joejag.numbertotext.utils.Assertions.assertConversion;
 
-public class AcceptanceTest {
-
-    private NumberToTextMain numberToText = new NumberToTextMain();
-
-    @Test
-    public void customer_provided_example_1() {
-        assertConversion("one", 1);
-    }
-
-    @Test
-    public void customer_provided_example_21() {
-        assertConversion("twenty one", 21);
-    }
-
-    @Test
-    public void customer_provided_example_56_945_781() {
-        assertConversion("fifty six million nine hundred and forty five thousand seven hundred and eighty one", 56945781);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void customer_provided_example_number_too_high() {
-        numberToText.translateToBritishEnglish(1000000000);
-    }
+public class ProgrammerAcceptanceTest {
 
     @Test
     public void translate_1_to_one() {
@@ -108,8 +86,8 @@ public class AcceptanceTest {
         assertConversion("two hundred million twenty thousand five hundred", 200020500);
     }
 
-    private void assertConversion(String expected, int input) {
-        assertEquals(expected, numberToText.translateToBritishEnglish(input));
+    @Test(expected = IllegalArgumentException.class)
+    public void number_too_low() {
+        new NumberToTextMain().translateToBritishEnglish(-1);
     }
-
 }
