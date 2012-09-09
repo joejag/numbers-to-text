@@ -66,6 +66,6 @@ public class BritishEnglishNumberDictionary implements NumberDictionary {
     }
 
     public boolean valueIsWithinRange(int number) {
-        return false;
+        return number > 0 && number < 1000000000;
     }
 }

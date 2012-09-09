@@ -5,8 +5,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class BritishEnglishNumberDictionaryTest {
 
@@ -45,7 +44,14 @@ public class BritishEnglishNumberDictionaryTest {
     }
 
     @Test
-    public void valid_range_values() {
-        // TODO: Write this!!
+    public void valid_number_values() {
+        assertTrue(dictionary.valueIsWithinRange(1));
+        assertTrue(dictionary.valueIsWithinRange(999999999));
+    }
+
+    @Test
+    public void invalid_number_values() {
+        assertFalse(dictionary.valueIsWithinRange(-1));
+        assertFalse(dictionary.valueIsWithinRange(1000000000));
     }
 }

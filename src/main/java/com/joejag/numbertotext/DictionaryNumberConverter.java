@@ -23,10 +23,11 @@ public class DictionaryNumberConverter {
     }
 
     public String toWords(int number) {
-        List<NumberComponent> components = new NumberBreaker(dictionary.parts()).breakDown(number);
+        if (!dictionary.valueIsWithinRange(number))
+            throw new IllegalArgumentException("I cannot convert this number to words: " + number);
 
         List<String> sentenceParts = new ArrayList<String>();
-        for (NumberComponent component : components) {
+        for (NumberComponent component : new NumberBreaker(dictionary.parts()).breakDown(number)) {
             List<String> reduced = reducer.toWords(component.number);
             sentenceParts.add(creator.toSentence(reduced, component.part));
         }
