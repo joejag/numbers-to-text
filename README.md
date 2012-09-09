@@ -25,10 +25,10 @@ With this kata you are given the same problem with the teenage numbers in europe
 This approach initially falls down when you try to calculate any number over 1000 due to the special grammatical rules that are in use when building sentences.  I decided to split the number into different parts, usually represented with a comma while writing the words, then use the algorithm to work out the individual parts of the word. With this in place you can work out a grammatically correct representation of a given number.
 
 For example: `56945781`  
-1. Split into parts of 3s: `56, 945, 781`
-2. Work out the wordy version of each part: `fifty six, nine hundred and forty five, seven hundred and eighty one`
-3. Add the number designation to each part: `fifty six million, nine hundred and forty five thousand, seven hundred and eighty one`
-4. Do a simple join to get the end result
+1. Split into parts of 3s: `56, 945, 781`  
+2. Work out the wordy version of each part: `fifty six, nine hundred and forty five, seven hundred and eighty one`    
+3. Add the number designation to each part: `fifty six million, nine hundred and forty five thousand, seven hundred and eighty one`  
+4. Do a simple join to get the end result  
 
 Alternatives
 ============
