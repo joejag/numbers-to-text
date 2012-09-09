@@ -10,4 +10,6 @@ public interface NumberDictionary {
     String wordFor(int number);
 
     List<Part> parts();
+
+    boolean valueIsWithinRange(int number);
 }

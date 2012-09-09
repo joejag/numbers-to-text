@@ -23,6 +23,11 @@ public class AcceptanceTest {
         assertConversion("fifty six million nine hundred and forty five thousand seven hundred and eighty one", 56945781);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void customer_provided_example_number_too_high() {
+        numberToText.translateToBritishEnglish(1000000000);
+    }
+
     @Test
     public void translate_1_to_one() {
         assertConversion("one", 1);

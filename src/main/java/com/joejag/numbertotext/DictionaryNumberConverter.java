@@ -12,9 +12,9 @@ import java.util.List;
 
 public class DictionaryNumberConverter {
 
-    private final NumberDictionary dictionary;
-    private final SentenceCreator creator;
-    private final DictionaryBasedNumberReducer reducer;
+    private NumberDictionary dictionary;
+    private SentenceCreator creator;
+    private DictionaryBasedNumberReducer reducer;
 
     public DictionaryNumberConverter(NumberDictionary dictionary, SentenceCreator creator) {
         this.dictionary = dictionary;

@@ -64,4 +64,8 @@ public class BritishEnglishNumberDictionary implements NumberDictionary {
     public List<Part> parts() {
         return asList(new Part("million", 9, 6), new Part("thousand", 6, 3), new Part(HUNDRED, 3, 0));
     }
+
+    public boolean valueIsWithinRange(int number) {
+        return false;
+    }
 }

@@ -8,7 +8,9 @@ import com.joejag.numbertotext.dictionary.british.BritishEnglishSentenceCreator;
 public class NumberToTextMain {
 
     public String translateToBritishEnglish(int input) {
-        return translate(input, new BritishEnglishNumberDictionary(), new BritishEnglishSentenceCreator());
+        return translate(input,
+                new BritishEnglishNumberDictionary(),
+                new BritishEnglishSentenceCreator());
     }
 
     private String translate(int input, NumberDictionary dictionary, SentenceCreator sentenceCreator) {

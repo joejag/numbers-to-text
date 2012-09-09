@@ -13,13 +13,13 @@ public class BritishEnglishSentenceCreator implements SentenceCreator {
     public String toSentence(List<String> words, Part part) {
         StringBuilder sb = new StringBuilder(Strings.join(words));
 
-        addAndIfHasHundredWithFurtherValue(sb);
+        addAndIfHasHundredPartWithFurtherValue(sb);
         addNumberComponentPartIfNotHundred(sb, part);
 
         return sb.toString();
     }
 
-    private void addAndIfHasHundredWithFurtherValue(StringBuilder sb) {
+    private void addAndIfHasHundredPartWithFurtherValue(StringBuilder sb) {
         String sentence = sb.toString();
         if (sentence.contains(HUNDRED) && !sentence.endsWith(HUNDRED))
             sb.insert(sb.indexOf(HUNDRED) + HUNDRED.length(), " and");
